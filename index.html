@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Healthcare Ecosystem</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e6f2ff, #5b7691);
+    color: #1a1a1a;
+  }
+
+  /* Header layout */
+  header {
+    background: linear-gradient(135deg, #011f42, #011215, #011e28);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Top bar: title + search + login */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+  }
+
+  header h1 {
+    font-size: 2.2em;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(0,0,0,0.25);
+  }
+
+  /* Right side (search + login) */
+  .right-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Search bar */
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+
+  .search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1em;
+    width: 160px;
+    transition: width 0.3s ease;
+  }
+
+  .search-container input::placeholder {
+    color: #cfd9e6;
+  }
+
+  .search-container input:focus {
+    width: 200px;
+  }
+
+  .search-container button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-left: 5px;
+    transition: transform 0.2s;
+  }
+
+  .search-container button:hover {
+    transform: scale(1.1);
+    color: #00b4d8;
+  }
+
+  /* Login circle */
+  .login-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 8px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .login-circle:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 183, 255, 0.5);
+  }
+
+  .login-circle span {
+    font-size: 1.3em;
+    color: #ffffff;
+    opacity: 0.85;
+  }
+
+  /* Navigation bar (below top bar) */
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 0 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  nav a:hover {
+    background: rgba(255,255,255,0.4);
+    color: #002b5c;
+    transform: scale(1.06);
+  }
+
+  /* Slideshow */
+  .slideshow {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+
+  .slides {
+    display: flex;
+    width: 100%;
+    animation: slide 20s infinite;
+  }
+
+  .slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+    filter: brightness(0.9) contrast(1.05);
+  }
+
+  @keyframes slide {
+     0% { transform: translateX(0%); }
+     20% { transform: translateX(-100%); }
+     40% { transform: translateX(-200%); }
+     60% { transform: translateX(-300%); }
+     80% { transform: translateX(-400%); }
+     100% { transform: translateX(-400%); }
+  }
+
+  #about {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #093383;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f0f4ff;
+  }
+
+  #about h2 {
+    text-align: center;
+    color: #00a6ff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  /* Content sections */
+  section {
+    background: linear-gradient(135deg, #5c7d9f, #175da3);
+    margin-bottom: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    gap: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+  }
+
+  section:nth-of-type(1) { animation-delay: 0.2s; }
+  section:nth-of-type(2) { animation-delay: 0.4s; }
+  section:nth-of-type(3) { animation-delay: 0.6s; }
+  section:nth-of-type(4) { animation-delay: 0.8s; }
+  section:nth-of-type(5) { animation-delay: 1s; }
+
+  section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,115,230,0.25);
+  }
+
+  section img {
+    width: 160px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  section:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+  }
+
+  .content h2 {
+    font-size: 1.6em;
+    color: #e6f7ff;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .content p {
+    font-size: 1.05em;
+    color: #f4faff;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 12px 26px;
+    font-size: 1em;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #0072ff, #00b4d8);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #0096ff, #0077b6);
+    box-shadow: 0 6px 20px rgba(0,128,255,0.3);
+    transform: scale(1.04);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media(max-width: 700px) {
+    .top-bar {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .right-items {
+      justify-content: center;
+    }
+    nav {
+      flex-direction: column;
+      padding: 10px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <h1>Healthcare Ecosystem</h1>
+
+    <div class="right-items">
+      <div class="search-container">
+        <input type="text" placeholder="Search..." />
+        <button title="Search">🔍</button>
+      </div>
+      <div class="login-circle" onclick="alert('Login or Sign Up feature coming soon!')">
+        <span>👤</span>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#doctors">Find Doctors</a>
+    <a href="#appointments">Appointments</a>
+    <a href="#emergency">SOS Ambulance</a>
+    <a href="#medicine">Medicine Dictionary</a>
+  </nav>
+</header>
+
+<!-- Keep rest of your site same -->
+<div class="slideshow" aria-label="Healthcare images slideshow">
+  <div class="slides">
+    <img src="https://thumbs.dreamstime.com/b/doctors-hospital-corridor-nurse-pushing-gurney-stretcher-bed-male-senior-female-patient-32154012.jpg" alt="Modern hospital exterior" />
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1500&q=80" alt="Doctors consulting patients" />
+    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1500&q=80" alt="Ambulance emergency team" />
+    <img src="https://thumbs.dreamstime.com/b/modern-hospital-room-interior-empty-bed-medical-equipment-ai-generated-379803543.jpg" alt="Medical pharmacy and medicine pills" />
+    <img src="https://thumbs.dreamstime.com/b/doctors-hospital-corridor-nurse-pushing-gurney-stretcher-bed-male-senior-female-patient-32154012.jpg" alt="Modern hospital exterior" />
+  </div>
+</div>
+
+<main>
+  <section id="dashboard">
+    <img src="https://c8.alamy.com/comp/HYY5M0/heart-rate-monitor-digital-display-HYY5M0.jpg" alt="Heartbeat Monitor" />
+    <div class="content">
+      <h2>Live User Personalized Dashboard</h2>
+      <p>Monitor your health stats, notifications, and personalized recommendations here.</p>
+      <button onclick="alert('Feature coming soon!')">View Health Data</button>
+    </div>
+  </section>
+
+  <section id="doctors">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/types-of-doctors-1600114658.jpg?crop=0.670xw:1.00xh;0.0553xw,0&resize=640:*" alt="Doctors" />
+    <div class="content">
+      <h2>Personal Doctor Recommendations</h2>
+      <p>Get expert recommended doctors based on your location and health needs.</p>
+      <button onclick="alert('Feature coming soon!')">Find Doctors</button>
+    </div>
+  </section>
+ <section id="appointments">
+    <img src="https://www.shutterstock.com/image-photo/book-your-appointment-text-on-600nw-2400843205.jpg" alt="Appointments" />
+    <div class="content">
+      <h2>Schedule Doctor Appointment</h2>
+      <p>Book your appointments easily online with your chosen healthcare provider.</p>
+      <button onclick="alert('Feature coming soon!')">Book Appointment</button>
+    </div>
+  </section>
+
+  <section id="emergency">
+    <img src="https://t3.ftcdn.net/jpg/02/88/95/14/360_F_288951431_c5ZNInuEZbN4BlYcHyZiVSuInIAy8zMa.jpg" alt="Ambulance Service" />
+    <div class="content">
+      <h2>SOS Ambulance Service</h2>
+      <p>Request emergency ambulance services with a single click for immediate help.</p>
+      <button onclick="alert('Feature coming soon!')">Request Ambulance</button>
+    </div>
+  </section>
+<section id="medicine">
+    <img src="https://media.istockphoto.com/id/1778918997/photo/background-of-a-large-group-of-assorted-capsules-pills-and-blisters.jpg?s=612x612&w=0&k=20&c=G6aeWKN1kHyaTxiNdToVW8_xGY0hcenWYIjjG_xwF_Q=" alt="Medicine Dictionary" />
+    <div class="content">
+      <h2>Medicine Dictionary</h2>
+      <p>Access a comprehensive online medicine dictionary to understand various medications and their uses quickly.</p>
+      <button onclick="alert('Feature coming soon!')">Explore Medicine Dictionary</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Healthcare Ecosystem</h2>
+    <p>Welcome to the Healthcare Ecosystem Portal, your comprehensive platform to monitor health stats, find trusted doctors, schedule appointments, request emergency ambulance services, and access a medicine dictionary quickly and efficiently. Our portal is designed to provide personalized healthcare services at your fingertips for better health management and timely assistance.</p>
+  </section>
+</main>
+
+
+
+</body>
+</html>
