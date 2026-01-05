@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule Appointment | HealthMatrix</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+      rgba(230, 242, 255, 0.85),
+      rgba(91, 118, 145, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  background: linear-gradient(135deg, #011f42, #011215, #011e28);
+  color: white;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 800;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: linear-gradient(135deg, rgba(92,125,159,0.95), rgba(23,93,163,0.95));
+  padding: 40px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+  row-gap: 28px;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+label {
+  font-weight: 600;
+}
+
+input, select {
+  width: 95%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  margin-top: 40px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0072ff, #00b4d8);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>HealthMatrix – Appointment Scheduling</h1>
+</header>
+
+<div class="container">
+  <h2>Schedule Doctor Appointment</h2>
+
+  <form>
+    <div class="form-grid">
+
+      <!-- Patient Details -->
+      <div>
+        <label>Patient Name</label>
+        <input type="text" placeholder="Enter patient name">
+      </div>
+
+      <div>
+        <label>Age</label>
+        <input type="number" placeholder="Enter age">
+      </div>
+
+      <div>
+        <label>Gender</label>
+        <select>
+          <option>Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div></div>
+
+      <!-- Appointment Details -->
+      <div>
+        <label>Date</label>
+        <input type="date">
+      </div>
+
+      <div>
+        <label>Time</label>
+        <input type="time">
+      </div>
+
+      <div>
+        <label>Type of Doctor</label>
+        <select>
+          <option>Select Doctor Type</option>
+          <option>General Physician</option>
+          <option>Cardiologist</option>
+          <option>Dermatologist</option>
+          <option>Orthopedic</option>
+          <option>Gynecologist</option>
+          <option>Pediatrician</option>
+          <option>Neurologist</option>
+          <option>ENT Specialist</option>
+        </select>
+      </div>
+
+      <div></div>
+
+    </div>
+
+    <button type="submit">Confirm Appointment</button>
+  </form>
+</div>
+
+</body>
+</html>
