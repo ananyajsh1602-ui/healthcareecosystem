@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Dashboard | HealthMatrix</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+      rgba(230, 242, 255, 0.85),
+      rgba(91, 118, 145, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  background: linear-gradient(135deg, #011f42, #011215, #011e28);
+  color: white;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 800;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, rgba(92,125,159,0.95), rgba(23,93,163,0.95));
+  padding: 35px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  grid-column: span 2;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 5px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+  row-gap: 28px;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+label {
+  font-weight: 600;
+}
+
+input, textarea, select {
+  width: 95%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+button {
+  margin-top: 35px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0072ff, #00b4d8);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>HealthMatrix – User Dashboard</h1>
+</header>
+
+<div class="container">
+  <h2>Patient Health Record</h2>
+
+  <form>
+    <div class="form-grid">
+
+      <div class="section-title">Personal Information</div>
+
+      <div>
+        <label>First Name</label>
+        <input type="text">
+      </div>
+
+      <div>
+        <label>Middle Name</label>
+        <input type="text">
+      </div>
+
+      <div>
+        <label>Surname</label>
+        <input type="text">
+      </div>
+
+      <div>
+        <label>Mobile Number</label>
+        <input type="tel">
+      </div>
+
+      <div>
+        <label>Date of Birth</label>
+        <input type="date">
+      </div>
+
+      <div>
+        <label>Gender</label>
+        <select>
+          <option>Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Blood Group</label>
+        <select>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Emergency Contact Number</label>
+        <input type="tel">
+      </div>
+
+      <div class="full">
+        <label>Address</label>
+        <textarea></textarea>
+      </div>
+
+      <div class="section-title">Medical History</div>
+
+      <div class="full">
+        <label>Existing Diseases / Chronic Conditions</label>
+        <textarea></textarea>
+      </div>
+
+      <div class="full">
+        <label>Previous Surgeries / Operations</label>
+        <textarea></textarea>
+      </div>
+
+      <div class="full">
+        <label>Allergies</label>
+        <textarea></textarea>
+      </div>
+
+      <div class="section-title">Vital Information</div>
+
+      <div>
+        <label>Height (cm)</label>
+        <input type="number">
+      </div>
+
+      <div>
+        <label>Weight (kg)</label>
+        <input type="number">
+      </div>
+
+    </div>
+
+    <button type="submit">Save Patient Information</button>
+  </form>
+</div>
+
+</body>
+</html>
